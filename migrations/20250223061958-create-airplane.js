@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Airplanes', {
+    await queryInterface.createTable('Airplane', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,7 +16,7 @@ module.exports = {
       capacity: {
         type: Sequelize.INTEGER, 
         defaultValue:0,
-        // max:1000
+        max:1000
       },
       createdAt: {
         allowNull: false,
