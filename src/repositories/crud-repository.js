@@ -15,7 +15,9 @@ class CrudRepository{
         try
         {
             console.log("hello");
+            console.log<<data.cityId<<" ";
             const response=await this.model.create(data);
+            console.log("hers");
             return response;
         }
         catch(error)
