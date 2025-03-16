@@ -9,10 +9,18 @@ const router=express.Router();
 
 
 // console.log("Sgsg");
-// api/v1/airplane post
+// api/v1/flight post
 router.post('/',
     FlightMiddlewares.validateCreateRequest,
     FlightController.createFlight);
+
+
+
+router.get('/', FlightController.getAllFlights);
+
+
+
+    // trips=MUM-DEL GETr.get('/',FlightController.createFlight);
 
     // api/v1/airplane get
 // router.get('/',

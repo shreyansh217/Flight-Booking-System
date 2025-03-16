@@ -7,6 +7,7 @@ const airplane = require('../models/airplane');
 const { AirplaneRepository } = require('../repositories');
 const AppError = require('../utils/errors/app-error');
 const city = require('../models/city');
+const { getAllFlights } = require('../services/flight-service');
 
 // post flights
 // {
@@ -56,7 +57,29 @@ async function createFlight(req, res)
 }
 
 
+async function getAllFlights(req, res)
+{
+    try{
+        console.log(req.query);
+        const flights=await FlightService.getAllFlights(req.query);
+        SuccessResponse.data=flights;
+        return res
+                   .status(StatusCodes.CREATED)
+                   .json(SuccessResponse);
+    }
+    catch(error)
+    {
+        console.log("noono");
+        ErrorResponse.error=error
+        return res
+                   .status(StatusCodes.INTERNAL_SERVER_ERROR)
+                   .json(ErrorResponse);
+
+    }
+}
+
 module.exports={
-    createFlight
+    createFlight, 
+    getAllFlights
     
 }

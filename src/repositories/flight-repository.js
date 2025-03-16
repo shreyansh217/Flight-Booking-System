@@ -12,7 +12,15 @@ class  FlightRepository extends CrudRepository{
         super(Flight);
 
     }
- 
+    async getAllFlights(filter)
+    {
+        const respone=await Flight.findAll({
+            where:filter
+
+        });
+        return respone;
+
+    }
 }
 
 module.exports=FlightRepository;

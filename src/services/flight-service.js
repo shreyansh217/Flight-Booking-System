@@ -31,9 +31,35 @@ async function createFlight(data)
     }
 }
 
+// getAllFlights
+// getAllFlights
 
+async function getAllFlights(query)
+{
+    customFilter={};
+    // mumbai to delhi
+    if(query.trips)
+    {
+       [departureAirportID,arrivalAirportID]=trips.split("-");
+       customFilter.departureAirportID=departureAirportID;
+       customFilter.arrivalAirportID=arrivalAirportID;
+    //    add a check they are not same 
+    }
+    console.log(customFilter);
+    try{
+        const flights=await flightRepository.getAllFlights(customFilter);
+        return flights;
+
+    }
+    catch(error)
+    {
+        throw new AppError('cannot fetch data of all the flights ', StatusCodes.INTERNAL_SERVER_ERROR)
+    }
+
+}
 
 
 module.exports={
-    createFlight
+    createFlight, 
+    getAllFlights
 }
