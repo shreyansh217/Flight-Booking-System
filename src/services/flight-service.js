@@ -38,16 +38,21 @@ async function getAllFlights(query)
 {
     customFilter={};
     // mumbai to delhi
+    console.log("knksnkbs");
     if(query.trips)
     {
-       [departureAirportID,arrivalAirportID]=trips.split("-");
+        console.log("trips");
+       [departureAirportID,arrivalAirportID]=query.trips.split("-");
+       console.log(1);
        customFilter.departureAirportID=departureAirportID;
        customFilter.arrivalAirportID=arrivalAirportID;
-    //    add a check they are not same 
     }
     console.log(customFilter);
+    console.log("SGSg");
     try{
+        console.log("jsgsgo");
         const flights=await flightRepository.getAllFlights(customFilter);
+        console.log("Sgskgknbksbs");
         return flights;
 
     }

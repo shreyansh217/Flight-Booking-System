@@ -57,7 +57,7 @@ async function createFlight(req, res)
 }
 
 
-async function getAllFlights(req, res)
+async function getallflights(req, res)
 {
     try{
         console.log(req.query);
@@ -80,6 +80,6 @@ async function getAllFlights(req, res)
 
 module.exports={
     createFlight, 
-    getAllFlights
+    getallflights
     
 }

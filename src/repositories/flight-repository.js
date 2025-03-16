@@ -1,6 +1,6 @@
 const CrudRepository =require('./crud-repository');
 
-const {Flight}=require('../models/index');
+const {Flight}=require('../models');
 // const { Model } = require('sequelize');
 
 
@@ -14,11 +14,15 @@ class  FlightRepository extends CrudRepository{
     }
     async getAllFlights(filter)
     {
-        const respone=await Flight.findAll({
+        console.log("bksnbksnbsb");
+        console.log(filter);
+        const response=await Flight.findAll({
+            // console.log("SGSgs");
+            
             where:filter
-
         });
-        return respone;
+        console.log("bs,bmbmb");
+        return response;
 
     }
 }

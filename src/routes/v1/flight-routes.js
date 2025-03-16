@@ -16,7 +16,7 @@ router.post('/',
 
 
 
-router.get('/', FlightController.getAllFlights);
+router.get('/', FlightController.getallflights);
 
 
 
